@@ -1,1 +1,1 @@
-yhebik's dotfiles.
+## yhebik's dotfile collection
