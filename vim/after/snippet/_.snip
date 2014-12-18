@@ -1,7 +1,7 @@
 # current working directory
 snippet     c
 options     word
-        `substitute(substitute(system('pwd'), '\n', '', ''), $HOME, "~", "")`
+        `substitute(substitute(system('pwd'), '\n', '', '') . '/', $HOME, "~", "")`
 
 # project root directory
 snippet     p
@@ -10,9 +10,9 @@ options     word
 
 snippet     i
 options     word
-        ~/Projects/research/image/
+        ~/Research/doc/image/
 
 snippet     w
 options     word
-        ~/Projects/_work/
+        ~/Research/work/
 
