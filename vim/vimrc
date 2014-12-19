@@ -131,6 +131,7 @@ set foldtext=FoldCCtext()
 " jellybeans "{{{
 if has('gui_running') || &t_Co==256
     colorscheme jellybeans
+    highlight CursorLine ctermbg=darkgray guibg=#343434
     highlight Folded gui=bold guibg=#303030 guifg=#998899
     highlight Normal ctermbg=None
 endif
