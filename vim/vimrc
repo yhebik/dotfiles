@@ -20,6 +20,7 @@ set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set shortmess=aTI       " no greeting messages
 set completeopt=menuone
+set showtabline=2
 autocmd vimrc FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
 "}}}
 " Status line."{{{
@@ -224,5 +225,8 @@ imap <C-j> <Plug>(eskk:toggle)
 let g:eskk#dictionary = {'path': "~/.eskk/skk-jisyo", 'sorted': 0, 'encoding': 'utf-8',}
 let g:eskk#large_dictionary = {'path': "~/.eskk/SKK-JISYO.L.utf8", 'sorted': 1, 'encoding': 'utf-8',}
 let g:eskk#keep_state = 1
+"}}}
+" vim-mctabline"{{{
+set tabline=%!MakeTabLine()
 "}}}
 "}}}
