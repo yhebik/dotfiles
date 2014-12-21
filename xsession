@@ -1,5 +1,5 @@
 #!/bin/bash
-export QT_IM_MODULE='uim'
+# export QT_IM_MODULE='uim'
 export GTK_IM_MODULE='uim'
 export XMODIFIERS="@im=uim" 
 
