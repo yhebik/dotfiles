@@ -38,6 +38,7 @@ nnoremap zv zMzvzz
 nmap <Space> <C-w>
 nnoremap <C-w>N :tabnew<CR>
 nnoremap <C-w>C :tabclose<CR>
+nnoremap <C-w>O :tabonly<CR>
 nnoremap - gt
 nnoremap _ gT
 nnoremap <expr> h col('.')==1 ? "zc" : "h"
