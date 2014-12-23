@@ -5,7 +5,7 @@ augroup vimrc
 augroup END
 language message C
 set helplang=en,ja spelllang=en_us,cjk
-set ambiwidth=double encoding=utf-8 fileencoding=utf-8 
+set ambiwidth=double encoding=utf-8 fileencoding=utf-8
 set showmode showcmd cmdheight=1 laststatus=2
 set autoindent smartindent expandtab smarttab
 set tabstop=8 shiftwidth=4 softtabstop=4
@@ -118,7 +118,7 @@ function! OpAlignta(motion_wisenes)
 endfunction
 call operator#user#define('alignta', 'OpAlignta')
 map + <plug>(operator-alignta)
-"}}}    
+"}}}
 " caw (operator) "{{{
 function! OpCawCommentout(motion_wise)
     execute "normal" "`[V`]\<Plug>(caw:i:toggle)"
