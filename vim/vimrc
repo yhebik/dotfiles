@@ -100,6 +100,7 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'rhysd/vim-operator-surround'
+NeoBundle 't9md/vim-quickhl'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'thinca/vim-textobj-comment'
@@ -225,6 +226,9 @@ imap <C-j> <Plug>(eskk:toggle)
 let g:eskk#dictionary = {'path': "~/.eskk/skk-jisyo", 'sorted': 0, 'encoding': 'utf-8',}
 let g:eskk#large_dictionary = {'path': "~/.eskk/SKK-JISYO.L.utf8", 'sorted': 1, 'encoding': 'utf-8',}
 let g:eskk#keep_state = 1
+"}}}
+" quickhl{{{
+map H <Plug>(operator-quickhl-manual-this-motion)
 "}}}
 " vim-mctabline"{{{
 set tabline=%!MakeTabLine()
