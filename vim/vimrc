@@ -43,7 +43,6 @@ nnoremap - gt
 nnoremap _ gT
 nnoremap <expr> h col('.')==1 ? "zc" : "h"
 nnoremap <expr> l foldclosed(line('.'))!=-1 ? "zo" : "l"
-inoremap <C-f> <C-x><C-o>
 inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-p>" : "\<S-Tab>"
 "}}}
@@ -154,7 +153,7 @@ if executable('ag')
     let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 endif
 let s:pls = []
-let s:ils = ['png', 'eps', 'xcf', 'pyc', 'pickle', 'vtk', 'git', 'aux', 'pdf', 'dvi', 'toc', 'gz', 'bz2', 'a', 'o', 'so', 'mp4']
+let s:ils = ['png', 'eps', 'xcf', 'pyc', 'pickle', 'vtk', 'git', 'aux', 'pdf', 'dvi', 'toc', 'gz', 'bz2', 'a', 'o', 'so', 'mp4', 'zip',]
 for suffix in s:ils
     call add(s:pls, '\.'.suffix)
 endfor
