@@ -20,6 +20,7 @@ set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set shortmess=aTI       " no greeting messages
 set completeopt=menuone
+set pumheight=10
 set showtabline=2
 autocmd vimrc FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
 "}}}
