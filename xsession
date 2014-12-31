@@ -12,6 +12,4 @@ if [ -f $HOME/.Xresources ] ; then
 fi
 
 # WMii window manager.
-wmii &
-
-exec mlterm
+exec wmii
