@@ -5,7 +5,7 @@ endif
 highlight markdownBoldItalic term=bold cterm=bold gui=bold
 highlight markdownItalic term=None cterm=None gui=None
 
-call textobj#user#plugin('latex-math', {
+call textobj#user#plugin('latexmath', {
             \  'dollar-math-a': {
             \     '*pattern*': '[$][^$]*[$]',
             \     'select': 'a$',
