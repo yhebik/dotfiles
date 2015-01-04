@@ -46,6 +46,8 @@ nnoremap <expr> h col('.')==1 ? "zc" : "h"
 nnoremap <expr> l foldclosed(line('.'))!=-1 ? "zo" : "l"
 inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-p>" : "\<S-Tab>"
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 "}}}
 "}}}
 " Appearance: "{{{
