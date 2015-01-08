@@ -40,6 +40,7 @@ nmap <Space> <C-w>
 nnoremap <C-w>N :tabnew<CR>
 nnoremap <C-w>C :tabclose<CR>
 nnoremap <C-w>O :tabonly<CR>
+nnoremap <C-w><Space> <C-w><C-w>
 nnoremap - gt
 nnoremap _ gT
 nnoremap <expr> h col('.')==1 ? "zc" : "h"
