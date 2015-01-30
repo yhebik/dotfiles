@@ -169,7 +169,7 @@ call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'max_candi
 nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer<CR>
 nnoremap <silent> [unite]x   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_mru<CR>
 nnoremap <silent> [unite]l   :<C-u>Unite -silent -no-split -no-resize -buffer-name=lines line<CR>
-nnoremap          [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec/git:--cached:--others:--exclude-standard<CR>
+nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec/git:--cached:--others:--exclude-standard<CR>
 nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
 nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files file:". $HOME . "\<CR>"
 nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
