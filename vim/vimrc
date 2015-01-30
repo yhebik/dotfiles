@@ -1,4 +1,4 @@
-    " Vim Options: {{{
+" Vim Options: {{{
 " 'set' options. {{{
 augroup MyGroup
     autocmd!
