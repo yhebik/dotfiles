@@ -1,6 +1,6 @@
     " Vim Options: {{{
 " 'set' options. {{{
-augroup vimrc
+augroup MyGroup
     autocmd!
 augroup END
 language message C
@@ -22,7 +22,6 @@ set shortmess=aTI       " no greeting messages
 set completeopt=menuone
 set pumheight=6
 set showtabline=2
-autocmd vimrc FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
 "}}}
 " Status line."{{{
 let &statusline = "[%{winnr()}]%f%m%r%h%w\ %="
@@ -176,7 +175,8 @@ nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-na
 nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
 nnoremap <expr>   [unite]G ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:" . unite#util#path2project_directory(expand("%")) . "::"
 nnoremap <silent> [unite]m   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files junkfile/new junkfile<CR>
-autocmd vimrc BufEnter * :execute 'lcd ' . unite#util#path2project_directory(expand('%'))
+autocmd MyGroup BufEnter * :execute 'lcd ' . unite#util#path2project_directory(expand('%'))
+autocmd MyGroup FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
 "}}}
 " operator-replace "{{{
 map S <Plug>(operator-replace)
