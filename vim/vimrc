@@ -170,8 +170,8 @@ let g:vimshell_split_command = ''
 let g:vimshell_prompt = "% "
 let g:vimshell_user_prompt = 'hostname() .":". fnamemodify(getcwd(), ":~")'
 let g:vimshell_max_command_history = 10000
-nnoremap ,  :<C-u>update<CR>:VimShellCurrentDir<CR>
-nnoremap g, :<C-u>update<CR>:VimShellBufferDir<CR>
+nnoremap , :<C-u>update<CR>:VimShellBufferDir<CR>
+nnoremap g,  :<C-u>update<CR>:VimShellCurrentDir<CR>
 "}}}
 " visualstar"{{{
 nnoremap <Plug>(Nzz) Nzz
@@ -192,4 +192,3 @@ map H <Plug>(operator-quickhl-manual-this-motion)
 set tabline=%!MakeTabLine()
 "}}}
 "}}}
-finish
