@@ -66,55 +66,8 @@ endif
 syntax enable
 "}}}
 "}}}
-" Plugings: "{{{
-" Initialization:"{{{
-let s:neobundle_dir = expand('~/.cache/neobundle')
-if !isdirectory(s:neobundle_dir.'/neobundle.vim')
-    execute printf('!git clone %s://github.com/Shougo/neobundle.vim.git',
-                \ (exists('$http_proxy') ? 'https' : 'git')) s:neobundle_dir.'/neobundle.vim'
-endif
-if has('vim_starting')
-    execute 'set runtimepath+=' . s:neobundle_dir.'/neobundle.vim'
-endif
-let g:neobundle#enable_tail_path = 1
-let g:neobundle#default_options = { 'default' : { 'overwrite' : 0 }, }
-let g:neobundle#types#git#default_protocol = "ssh"
-call neobundle#begin(s:neobundle_dir)
-NeoBundleFetch 'Shougo/neobundle.vim'
-"}}}
-" PluginList: "{{{
-NeoBundle 'LeafCage/foldCC'
-NeoBundle 'Shougo/junkfile.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/tabpagebuffer.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc', {'build' : {'unix': 'make',},}
-NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'kana/vim-operator-replace'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-textobj-entire'
-NeoBundle 'kana/vim-textobj-fold'
-NeoBundle 'kana/vim-textobj-indent'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'rhysd/vim-operator-surround'
-NeoBundle 't9md/vim-quickhl'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thinca/vim-textobj-comment'
-NeoBundle 'thinca/vim-visualstar'
-NeoBundle 'tyru/caw.vim'
-NeoBundle 'tyru/eskk.vim'
-NeoBundle 'yhebik/vim-mctabline'
-NeoBundleCheck
-call neobundle#end()
+call pathogen#infect()
 filetype plugin indent on
-"}}}
 " alignta (operator)"{{{
 let g:alignta_default_arguments='<<0 \ '
 function! OpAlignta(motion_wisenes)
@@ -239,3 +192,4 @@ map H <Plug>(operator-quickhl-manual-this-motion)
 set tabline=%!MakeTabLine()
 "}}}
 "}}}
+finish

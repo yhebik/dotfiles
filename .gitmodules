@@ -1,0 +1,90 @@
+[submodule "vim/.vim/bundle/vim-pathogen"]
+	path = vim/.vim/bundle/vim-pathogen
+	url = git@github.com:tpope/vim-pathogen
+[submodule "vim/bundle/vim-pathogen"]
+	path = vim/bundle/vim-pathogen
+	url = git@github.com:tpope/vim-pathogen
+[submodule "vim/bundle/jellybeans.vim"]
+	path = vim/bundle/jellybeans.vim
+	url = git@github.com:nanotech/jellybeans.vim
+[submodule "vim/bundle/foldCC"]
+	path = vim/bundle/foldCC
+	url = git@github.com:LeafCage/foldCC
+[submodule "vim/bundle/neomru.vim"]
+	path = vim/bundle/neomru.vim
+	url = git@github.com:Shougo/neomru.vim
+[submodule "vim/bundle/neosnippet-snippets"]
+	path = vim/bundle/neosnippet-snippets
+	url = git@github.com:Shougo/neosnippet-snippets
+[submodule "vim/bundle/neosnippet.vim"]
+	path = vim/bundle/neosnippet.vim
+	url = git@github.com:Shougo/neosnippet.vim
+[submodule "vim/bundle/tabpagebuffer.vim"]
+	path = vim/bundle/tabpagebuffer.vim
+	url = git@github.com:Shougo/tabpagebuffer.vim
+[submodule "vim/bundle/unite.vim"]
+	path = vim/bundle/unite.vim
+	url = git@github.com:Shougo/unite.vim
+[submodule "vim/bundle/vimproc"]
+	path = vim/bundle/vimproc
+	url = git@github.com:Shougo/vimproc
+[submodule "vim/bundle/vimshell.vim"]
+	path = vim/bundle/vimshell.vim
+	url = git@github.com:Shougo/vimshell.vim
+[submodule "vim/bundle/vim-alignta"]
+	path = vim/bundle/vim-alignta
+	url = git@github.com:h1mesuke/vim-alignta
+[submodule "vim/bundle/vim-operator-replace"]
+	path = vim/bundle/vim-operator-replace
+	url = git@github.com:kana/vim-operator-replace
+[submodule "vim/bundle/vim-operator-user"]
+	path = vim/bundle/vim-operator-user
+	url = git@github.com:kana/vim-operator-user
+[submodule "vim/bundle/vim-textobj-entire"]
+	path = vim/bundle/vim-textobj-entire
+	url = git@github.com:kana/vim-textobj-entire
+[submodule "vim/bundle/vim-textobj-fold"]
+	path = vim/bundle/vim-textobj-fold
+	url = git@github.com:kana/vim-textobj-fold
+[submodule "vim/bundle/vim-textobj-indent"]
+	path = vim/bundle/vim-textobj-indent
+	url = git@github.com:kana/vim-textobj-indent
+[submodule "vim/bundle/vim-textobj-line"]
+	path = vim/bundle/vim-textobj-line
+	url = git@github.com:kana/vim-textobj-line
+[submodule "vim/bundle/vim-textobj-user"]
+	path = vim/bundle/vim-textobj-user
+	url = git@github.com:kana/vim-textobj-user
+[submodule "vim/bundle/gist-vim"]
+	path = vim/bundle/gist-vim
+	url = git@github.com:mattn/gist-vim
+[submodule "vim/bundle/webapi-vim"]
+	path = vim/bundle/webapi-vim
+	url = git@github.com:mattn/webapi-vim
+[submodule "vim/bundle/vim-operator-surround"]
+	path = vim/bundle/vim-operator-surround
+	url = git@github.com:rhysd/vim-operator-surround
+[submodule "vim/bundle/vim-quickhl"]
+	path = vim/bundle/vim-quickhl
+	url = git@github.com:t9md/vim-quickhl
+[submodule "vim/bundle/vim-quickrun"]
+	path = vim/bundle/vim-quickrun
+	url = git@github.com:thinca/vim-quickrun
+[submodule "vim/bundle/vim-ref"]
+	path = vim/bundle/vim-ref
+	url = git@github.com:thinca/vim-ref
+[submodule "vim/bundle/vim-textobj-comment"]
+	path = vim/bundle/vim-textobj-comment
+	url = git@github.com:thinca/vim-textobj-comment
+[submodule "vim/bundle/vim-visualstar"]
+	path = vim/bundle/vim-visualstar
+	url = git@github.com:thinca/vim-visualstar
+[submodule "vim/bundle/caw.vim"]
+	path = vim/bundle/caw.vim
+	url = git@github.com:tyru/caw.vim
+[submodule "vim/bundle/eskk.vim"]
+	path = vim/bundle/eskk.vim
+	url = git@github.com:tyru/eskk.vim
+[submodule "vim/bundle/vim-mctabline"]
+	path = vim/bundle/vim-mctabline
+	url = git@github.com:yhebik/vim-mctabline
