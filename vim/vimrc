@@ -126,7 +126,6 @@ nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-na
 nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
 nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files file:". $HOME . "\<CR>"
 nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
-nnoremap <expr>   [unite]G ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:" . unite#util#path2project_directory(expand("%")) . "::"
 nnoremap <silent> [unite]m   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files junkfile/new junkfile<CR>
 autocmd MyGroup BufEnter * :execute 'lcd ' . unite#util#path2project_directory(expand('%'))
 autocmd MyGroup FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
