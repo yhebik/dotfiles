@@ -19,8 +19,7 @@ set hidden autoread noswapfile nobackup nowritebackup
 set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set shortmess=aTI       " no greeting messages
-set completeopt=menuone
-set pumheight=6
+set completeopt=menuone pumheight=6
 set showtabline=2
 "}}}
 " Status line."{{{
@@ -41,9 +40,6 @@ nnoremap <C-w>C :tabclose<CR>
 nnoremap <C-w>O :tabonly<CR>
 nnoremap - gt
 nnoremap _ gT
-nnoremap <Space><Space> :<C-u>update<CR>
-nnoremap <expr> h col('.')==1 ? "zc" : "h"
-nnoremap <expr> l foldclosed(line('.'))!=-1 ? "zo" : "l"
 inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-p>" : "\<S-Tab>"
 cnoremap <C-p> <Up>
@@ -131,7 +127,6 @@ nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-na
 nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
 nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files file:". $HOME . "\<CR>"
 nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
-nnoremap <silent> [unite]m   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files junkfile/new junkfile<CR>
 autocmd MyGroup BufEnter * :execute 'lcd ' . unite#util#path2project_directory(expand('%'))
 autocmd MyGroup FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
 "}}}
@@ -142,7 +137,6 @@ map S <Plug>(operator-replace)
 let g:quickrun_config = {
             \   "_":        {"runner": "vimproc", "runner/vimproc/updatetime": 500,},
             \   "python":   {"command": "python3", "cmdopt": "-u",},
-            \   "tex":      {"command": "platex", "cmdopt": "-halt-on-error"},
             \ }
 nnoremap <Plug>(colon) :
 nmap X <Plug>(colon)write<CR><Plug>(quickrun)
@@ -160,14 +154,13 @@ nmap m [ref/mark]
 nnoremap [ref/mark]w :Ref webdict weblio<space>
 nnoremap [ref/mark]p :Ref pydoc<space>
 nnoremap [ref/mark]m :Ref man<space>
-nnoremap [ref/mark]h :help<space>
 "}}}
 " operator-surround "{{{
 noremap [sorround] <Nop>
 map s [sorround]
-map <silent>[sorround]a <Plug>(operator-surround-append)
-map <silent>[sorround]d <Plug>(operator-surround-delete)
-map <silent>[sorround]r <Plug>(operator-surround-replace)
+map <silent> [sorround]a <Plug>(operator-surround-append)
+map <silent> [sorround]d <Plug>(operator-surround-delete)
+map <silent> [sorround]r <Plug>(operator-surround-replace)
 "}}}
 " vimshell "{{{
 let g:vimshell_split_command = ''
