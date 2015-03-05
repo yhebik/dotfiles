@@ -39,9 +39,9 @@ nmap <Space> <C-w>
 nnoremap <C-w>N :tabnew<CR>
 nnoremap <C-w>C :tabclose<CR>
 nnoremap <C-w>O :tabonly<CR>
-nnoremap <C-w><Space> <C-w><C-w>
 nnoremap - gt
 nnoremap _ gT
+nnoremap <Space><Space> :<C-u>update<CR>
 nnoremap <expr> h col('.')==1 ? "zc" : "h"
 nnoremap <expr> l foldclosed(line('.'))!=-1 ? "zo" : "l"
 inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : "\<Tab>"
@@ -105,22 +105,27 @@ nmap x [unite]
 let g:unite_enable_start_insert = 1
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts ='-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
+    let g:unite_source_grep_default_opts = 
+                \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
     let g:unite_source_grep_recursive_opt = ''
     let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
 endif
 let s:pls = []
-let s:ils = ['png', 'eps', 'xcf', 'pyc', 'pickle', 'vtk', 'git', 'aux', 'pdf', 'dvi', 'toc', 'gz', 'bz2', 'a', 'o', 'so', 'mp4', 'zip',]
-for suffix in s:ils
-    call add(s:pls, '\.'.suffix)
+let s:ils = [
+            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git', 
+            \ '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip',
+            \ '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config',
+            \ '\.gimp', '\.gnome', '\.ssh', '\.local', 
+            \]
+for pat in s:ils
+    call add(s:pls, pat)
 endfor
-call add(s:pls, '__pycache__')
 let s:ipattern = join(s:pls, '\|')
 call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'ignore_pattern', s:ipattern)
 call unite#custom#profile('default', 'context', { 'prompt_direction': 'top'})
-call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'max_candidates', 0)
+call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'max_candidates', 100)
 nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer<CR>
-nnoremap <silent> [unite]x   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_mru<CR>
+nnoremap <expr>   [unite]x ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files find:". $HOME . "\<CR>"
 nnoremap <silent> [unite]l   :<C-u>Unite -silent -no-split -no-resize -buffer-name=lines line<CR>
 nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec/git:--cached:--others:--exclude-standard<CR>
 nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
@@ -184,10 +189,6 @@ let g:eskk#dictionary = {'path': "~/.eskk/skk-jisyo", 'sorted': 0, 'encoding': '
 let g:eskk#large_dictionary = {'path': "~/.eskk/SKK-JISYO.L.utf8", 'sorted': 1, 'encoding': 'utf-8',}
 let g:eskk#keep_state = 1
 "}}}
-" quickhl{{{
-map H <Plug>(operator-quickhl-manual-this-motion)
-"}}}
 " vim-mctabline"{{{
 set tabline=%!MakeTabLine()
-"}}}
 "}}}

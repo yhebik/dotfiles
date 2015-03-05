@@ -10,9 +10,6 @@
 [submodule "vim/bundle/foldCC"]
 	path = vim/bundle/foldCC
 	url = git@github.com:LeafCage/foldCC
-[submodule "vim/bundle/neomru.vim"]
-	path = vim/bundle/neomru.vim
-	url = git@github.com:Shougo/neomru.vim
 [submodule "vim/bundle/neosnippet-snippets"]
 	path = vim/bundle/neosnippet-snippets
 	url = git@github.com:Shougo/neosnippet-snippets
@@ -64,9 +61,6 @@
 [submodule "vim/bundle/vim-operator-surround"]
 	path = vim/bundle/vim-operator-surround
 	url = git@github.com:rhysd/vim-operator-surround
-[submodule "vim/bundle/vim-quickhl"]
-	path = vim/bundle/vim-quickhl
-	url = git@github.com:t9md/vim-quickhl
 [submodule "vim/bundle/vim-quickrun"]
 	path = vim/bundle/vim-quickrun
 	url = git@github.com:thinca/vim-quickrun
