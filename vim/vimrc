@@ -8,18 +8,18 @@ set helplang=en,ja spelllang=en_us,cjk
 set ambiwidth=double encoding=utf-8 fileencoding=utf-8
 set showmode showcmd cmdheight=1 laststatus=2
 set autoindent smartindent expandtab smarttab
-set tabstop=8 shiftwidth=4 softtabstop=4
+set tabstop=8 shiftwidth=4 softtabstop=4 shiftround
 set foldenable foldmethod=marker foldcolumn=0 commentstring=%s foldlevel=999
 let &showbreak = '> '
 set nohlsearch ignorecase smartcase incsearch wrapscan
 set display=lastline textwidth=0 splitbelow splitright
-set backspace=indent,eol,start shiftround infercase wrap
+set backspace=indent,eol,start
 set showmatch matchpairs& matchpairs+=<:>
 set hidden autoread noswapfile nobackup nowritebackup
 set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set shortmess=aTI       " no greeting messages
-set completeopt=menuone pumheight=6
+set completeopt=menuone pumheight=6 infercase
 set showtabline=2
 "}}}
 " Status line."{{{
@@ -62,8 +62,10 @@ endif
 syntax enable
 "}}}
 "}}}
+" pathogen "{{{
 call pathogen#infect()
 filetype plugin indent on
+"}}}
 " alignta (operator)"{{{
 let g:alignta_default_arguments='<<0 \ '
 function! OpAlignta(motion_wisenes)
@@ -119,8 +121,8 @@ endfor
 let s:ipattern = join(s:pls, '\|')
 call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'ignore_pattern', s:ipattern)
 call unite#custom#profile('default', 'context', { 'prompt_direction': 'top'})
-call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'max_candidates', 100)
-nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer<CR>
+call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'max_candidates', 25)
+nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer:-<CR>
 nnoremap <expr>   [unite]x ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files find:". $HOME . "\<CR>"
 nnoremap <silent> [unite]l   :<C-u>Unite -silent -no-split -no-resize -buffer-name=lines line<CR>
 nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec/git:--cached:--others:--exclude-standard<CR>
