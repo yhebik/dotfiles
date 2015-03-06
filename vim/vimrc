@@ -101,10 +101,10 @@ smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_o
 nnoremap [unite] <Nop>
 nmap x [unite]
 let s:ils = [
-            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git', 
+            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git',
             \ '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip',
             \ '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config',
-            \ '\.gimp', '\.gnome', '\.ssh', '\.local', 
+            \ '\.gimp', '\.gnome', '\.ssh', '\.local',
             \]
 let s:pls = []
 for pat in s:ils
