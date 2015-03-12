@@ -30,10 +30,6 @@ let &statusline .= "[%l/%L]\ [%{&ff}]\ [%Y]\ [%{&fenc!=''?&fenc:&enc}]"
 noremap : ;
 noremap ; :
 nnoremap Y y$
-noremap n nzz
-noremap N Nzz
-nnoremap g; g;zz
-nnoremap zv zMzvzz
 nnoremap <Space>. :<C-u>lcd %:p:h<CR>
 nnoremap , :<C-u>update<CR>:shell<CR>
 nnoremap <expr> g, ":\<C-u>update\<CR>:lcd ".system('git rev-parse --show-toplevel').":shell\<CR>"
@@ -91,11 +87,6 @@ smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_o
 
 " operator-replace 
 map S <Plug>(operator-replace)
-
-" visualstar
-nnoremap <Plug>(Nzz) Nzz
-map * <Plug>(visualstar-*)<Plug>(Nzz)
-map g* <Plug>(visualstar-g*)<Plug>(Nzz)
 
 " eskk 
 cmap <C-j> <Plug>(eskk:toggle)
