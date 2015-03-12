@@ -22,26 +22,6 @@
 	path = vim/bundle/neosnippet.vim
 	url = git@github.com:Shougo/neosnippet.vim
         ignore = dirty
-[submodule "vim/bundle/tabpagebuffer.vim"]
-	path = vim/bundle/tabpagebuffer.vim
-	url = git@github.com:Shougo/tabpagebuffer.vim
-        ignore = dirty
-[submodule "vim/bundle/unite.vim"]
-	path = vim/bundle/unite.vim
-	url = git@github.com:Shougo/unite.vim
-        ignore = dirty
-[submodule "vim/bundle/vimproc"]
-	path = vim/bundle/vimproc
-	url = git@github.com:Shougo/vimproc
-        ignore = dirty
-[submodule "vim/bundle/vimshell.vim"]
-	path = vim/bundle/vimshell.vim
-	url = git@github.com:Shougo/vimshell.vim
-        ignore = dirty
-[submodule "vim/bundle/vim-alignta"]
-	path = vim/bundle/vim-alignta
-	url = git@github.com:h1mesuke/vim-alignta
-        ignore = dirty
 [submodule "vim/bundle/vim-operator-replace"]
 	path = vim/bundle/vim-operator-replace
 	url = git@github.com:kana/vim-operator-replace
@@ -78,18 +58,6 @@
 	path = vim/bundle/webapi-vim
 	url = git@github.com:mattn/webapi-vim
         ignore = dirty
-[submodule "vim/bundle/vim-operator-surround"]
-	path = vim/bundle/vim-operator-surround
-	url = git@github.com:rhysd/vim-operator-surround
-        ignore = dirty
-[submodule "vim/bundle/vim-quickrun"]
-	path = vim/bundle/vim-quickrun
-	url = git@github.com:thinca/vim-quickrun
-        ignore = dirty
-[submodule "vim/bundle/vim-ref"]
-	path = vim/bundle/vim-ref
-	url = git@github.com:thinca/vim-ref
-        ignore = dirty
 [submodule "vim/bundle/vim-textobj-comment"]
 	path = vim/bundle/vim-textobj-comment
 	url = git@github.com:thinca/vim-textobj-comment
@@ -109,4 +77,12 @@
 [submodule "vim/bundle/vim-mctabline"]
 	path = vim/bundle/vim-mctabline
 	url = git@github.com:yhebik/vim-mctabline
+        ignore = dirty
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git@github.com:kana/vim-surround
+        ignore = dirty
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim
         ignore = dirty
