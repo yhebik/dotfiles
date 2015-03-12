@@ -1,0 +1,12 @@
+# Simple prompt distinguishing terminal called from Vim from normal one.
+if [ -n "$VIMRUNTIME" ] ; then
+    export PS1='Vim$ '
+else
+    export PS1='$ '
+fi
+
+# Prompt command to display the hostname and the current working directory.
+export PROMPT_COMMAND='echo -e "\033[36m[$(hostname):$(pwd | sed -e s/\\/home\\/kyamamoto/~/)/]\033[0m"'
+
+# Some aliases.
+alias ls='ls -F'

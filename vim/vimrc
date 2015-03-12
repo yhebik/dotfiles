@@ -63,13 +63,6 @@ endfunction
 call operator#user#define('caw', 'OpCawCommentout')
 map #  <Plug>(operator-caw)
 
-" ctrlp
-let g:ctrlp_map = '<Nop>'
-nnoremap [ctrlp] <Nop>
-nmap x [ctrlp]
-nnoremap [ctrlp]p :<C-u>CtrlP<CR>
-nnoremap [ctrlp]x :<C-u>CtrlPMRU<CR>
-
 " foldCC
 set foldtext=FoldCCtext()
 
@@ -100,6 +93,30 @@ nmap s <Plug>Ysurround
 
 " vim-mctabline
 set tabline=%!MakeTabLine()
+
+" unite 
+nnoremap [unite] <Nop>
+nmap x [unite]
+let g:unite_enable_start_insert = 1
+let s:ils = [
+            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git',
+            \ '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip',
+            \ '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config',
+            \ '\.gimp', '\.gnome', '\.ssh', '\.local',
+            \]
+let s:pls = []
+for pat in s:ils
+    call add(s:pls, pat)
+endfor
+let s:ipattern = join(s:pls, '\|')
+call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'ignore_pattern', s:ipattern)
+call unite#custom#profile('default', 'context', { 'prompt_direction': 'top'})
+nnoremap <silent> [unite]x   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_mru<CR>
+nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec:!<CR>
+nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
+nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files file:". $HOME . "\<CR>"
+nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer:-<CR>
+nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
 "}}}
 " AutoCmds:"{{{
 autocmd MyGroup FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
