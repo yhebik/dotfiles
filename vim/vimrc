@@ -6,7 +6,7 @@ augroup END
 language message C
 set helplang=en,ja spelllang=en_us,cjk
 set ambiwidth=double encoding=utf-8 fileencoding=utf-8
-set showmode showcmd cmdheight=1 laststatus=2
+set showmode showcmd cmdheight=2 laststatus=2
 set autoindent smartindent expandtab smarttab
 set tabstop=8 shiftwidth=4 softtabstop=4 shiftround
 set foldenable foldmethod=marker foldcolumn=0 commentstring=%s foldlevel=999
@@ -15,7 +15,7 @@ set nohlsearch ignorecase smartcase incsearch wrapscan
 set display=lastline textwidth=0 splitbelow splitright
 set backspace=indent,eol,start
 set showmatch matchpairs& matchpairs+=<:>
-set hidden autoread noswapfile nobackup nowritebackup
+set hidden autoread noswapfile nobackup nowritebackup autochdir
 set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set completeopt=menuone pumheight=6 infercase
@@ -34,8 +34,9 @@ noremap n nzz
 noremap N Nzz
 nnoremap g; g;zz
 nnoremap zv zMzvzz
-nnoremap <Space><Space> :<C-u>lcd %:p:h<CR>
-nnoremap , :shell<CR>
+nnoremap <Space>. :<C-u>lcd %:p:h<CR>
+nnoremap , :<C-u>update<CR>:shell<CR>
+nnoremap <expr> g, ":\<C-u>update\<CR>:lcd ".system('git rev-parse --show-toplevel').":shell\<CR>"
 nmap <Space> <C-w>
 nnoremap <C-w>N :tabnew<CR>
 nnoremap <C-w>C :tabclose<CR>
