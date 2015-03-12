@@ -79,7 +79,7 @@ imap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_o
 smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "@"
 
 " operator-replace 
-map S <Plug>(operator-replace)
+map X <Plug>(operator-replace)
 
 " eskk 
 cmap <C-j> <Plug>(eskk:toggle)
@@ -98,12 +98,7 @@ set tabline=%!MakeTabLine()
 nnoremap [unite] <Nop>
 nmap x [unite]
 let g:unite_enable_start_insert = 1
-let s:ils = [
-            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git',
-            \ '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip',
-            \ '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config',
-            \ '\.gimp', '\.gnome', '\.ssh', '\.local',
-            \]
+let s:ils = [ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git', '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip', '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config', '\.gimp', '\.gnome', '\.ssh', '\.local', ]
 let s:pls = []
 for pat in s:ils
     call add(s:pls, pat)
