@@ -136,6 +136,7 @@ set tabline=%!MakeTabLine()
 nnoremap [unite] <Nop>
 nmap x [unite]
 let g:unite_enable_start_insert = 1
+let g:neobundle#types#git#default_protocol = "ssh"
 if executable('ag')
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts ='-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
