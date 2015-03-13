@@ -13,7 +13,7 @@ call vimshell#altercmd#define('g', 'gexe')
 call vimshell#altercmd#define('sl', 'ls')
 
 " Key mappings.
-imap <buffer><expr> ,       getline('.')[col('.')-2] == ' ' ? "\<Esc>q" : ','
+imap <buffer><expr> ,       getline('.')[col('.')-2] == ' ' ? "\<Esc><C-^>" : ','
 imap <buffer><expr> <Space> getline('.')[col('.')-2] == ' ' ? "\<Plug>(vimshell_history_unite)" : ' '
 imap <buffer>       <C-l>   <Plug>(vimshell_clear)
 nmap <buffer>       0       <Plug>(vimshell_move_head)
