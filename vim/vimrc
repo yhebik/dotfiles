@@ -1,5 +1,5 @@
 " Defaults: {{{
-" Set Options: 
+" Set Options: "{{{
 augroup MyGroup
     autocmd!
 augroup END
@@ -15,23 +15,25 @@ set nohlsearch ignorecase smartcase incsearch wrapscan
 set display=lastline textwidth=0 splitbelow splitright
 set backspace=indent,eol,start
 set showmatch matchpairs& matchpairs+=<:>
-set hidden autoread noswapfile nobackup nowritebackup autochdir
+set hidden autoread noswapfile nobackup nowritebackup
 set timeout timeoutlen=5000 ttimeoutlen=50
 set history=250 clipboard& clipboard+=unnamed
 set completeopt=menuone pumheight=6 infercase
 set shortmess=aTI       " no greeting messages
 set showtabline=2
-
-" Status Line:
+"}}}
+" Status Line:"{{{
 let &statusline = "[%{winnr()}]%f%m%r%h%w\ %="
 let &statusline .= "[%l/%L]\ [%{&ff}]\ [%Y]\ [%{&fenc!=''?&fenc:&enc}]"
-
-" Key Mappings:
+"}}}
+" Key Mappings:"{{{
 noremap : ;
 noremap ; :
 nnoremap Y y$
-nnoremap <Space>. :<C-u>lcd %:p:h<CR>
-nnoremap , :<C-u>update<CR>:shell<CR>
+noremap n nzz
+noremap N Nzz
+nnoremap g; g;zz
+nnoremap zv zMzvzz
 nnoremap <expr> g, ":\<C-u>update\<CR>:lcd ".system('git rev-parse --show-toplevel').":shell\<CR>"
 nmap <Space> <C-w>
 nnoremap <C-w>N :tabnew<CR>
@@ -43,76 +45,109 @@ inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : 
 inoremap <expr> <S-Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-p>" : "\<S-Tab>"
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-
-" Appearance:
+"}}}
+" Appearance:"{{{
 set background=dark
 if $TERM == "mlterm" || $TERM == "xterm-256color"
     set t_Co=256
 endif
 syntax enable
 "}}}
+"}}}
 " Plugins:"{{{
+" Plugin List:"{{{
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'LeafCage/foldCC'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/tabpagebuffer.vim'
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
 NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/tabpagebuffer.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-line'
-NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-operator-replace'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-surround'
+NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
+NeoBundle 'kana/vim-textobj-indent'
+NeoBundle 'kana/vim-textobj-line'
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'mattn/gist-vim', {'depends': 'mattn/webapi-vim'}
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-textobj-comment'
+NeoBundle 'thinca/vim-visualstar'
+NeoBundle 'tyru/caw.vim'
+NeoBundle 'tyru/eskk.vim'
+NeoBundle 'yhebik/vim-mctabline'
+NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
-
-finish
-" caw
+"}}}
+" caw"{{{
 function! OpCawCommentout(motion_wise)
     execute "normal" "`[V`]\<Plug>(caw:i:toggle)"
 endfunction
 call operator#user#define('caw', 'OpCawCommentout')
 map #  <Plug>(operator-caw)
-
-" foldCC
+"}}}
+" foldCC"{{{
 set foldtext=FoldCCtext()
 
 " jellybeans 
-if &t_Co==256
+if has('gui_running') || &t_Co==256
     colorscheme jellybeans
     highlight CursorLine ctermbg=darkgray guibg=#343434
     highlight Normal ctermbg=None
 endif
-
-" neosnippet 
+"}}}
+" neosnippet "{{{
 let g:neosnippet#snippets_directory = '~/.vim/after/snippet'
 imap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "@"
 smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "@"
-
-" operator-replace 
-map X <Plug>(operator-replace)
-
-" eskk 
+"}}}
+" operator-replace "{{{
+map t <Plug>(operator-replace)
+"}}}
+" eskk "{{{
 cmap <C-j> <Plug>(eskk:toggle)
 imap <C-j> <Plug>(eskk:toggle)
-let g:eskk#dictionary = {'path': "~/.eskk/skk-jisyo", 'sorted': 0, 'encoding': 'utf-8',}
-let g:eskk#large_dictionary = {'path': "~/.eskk/SKK-JISYO.L.utf8", 'sorted': 1, 'encoding': 'utf-8',}
+let g:eskk#dictionary = {
+            \ 'path': "~/.eskk/skk-jisyo", 'sorted': 0, 'encoding': 'utf-8',
+            \ }
+let g:eskk#large_dictionary = {
+            \ 'path': "~/.eskk/SKK-JISYO.L.utf8", 'sorted': 1, 'encoding': 'utf-8',
+            \}
 let g:eskk#keep_state = 1
-
-" vim-surround
+"}}}
+" vim-surround"{{{
 nmap s <Plug>Ysurround
-
-" vim-mctabline
+"}}}
+" vim-mctabline"{{{
 set tabline=%!MakeTabLine()
-
-" unite 
+"}}}
+" unite "{{{
 nnoremap [unite] <Nop>
 nmap x [unite]
 let g:unite_enable_start_insert = 1
-let s:ils = [ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', '\.git', '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', '\.a', '\.o', '\.so', '\.mp4', '\.zip', '__pycache__', '\.eskk', '\.cache', '\.uim', '\.config', '\.gimp', '\.gnome', '\.ssh', '\.local', ]
+if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts ='-i --line-numbers --nocolor --nogroup --hidden --ignore ''.git'''
+    let g:unite_source_grep_recursive_opt = ''
+    let g:unite_source_rec_async_command = 'ag --follow --nocolor --nogroup --hidden -g ""'
+endif
+let s:ils = [ 
+            \ '\.png', '\.eps', '\.xcf', '\.pyc', '\.pickle', '\.vtk', 
+            \ '\.git', '\.aux', '\.pdf', '\.dvi', '\.toc', '\.gz', '\.bz2', 
+            \ '\.a', '\.o', '\.so', '\.mp4', '\.zip', '__pycache__', '\.eskk', 
+            \ '\.cache', '\.uim', '\.config', '\.gimp', '\.gnome', '\.ssh', '\.local', 
+            \ ]
 let s:pls = []
 for pat in s:ils
     call add(s:pls, pat)
@@ -121,11 +156,51 @@ let s:ipattern = join(s:pls, '\|')
 call unite#custom#source('file,file_rec,file_rec/async,file_rec/git', 'ignore_pattern', s:ipattern)
 call unite#custom#profile('default', 'context', { 'prompt_direction': 'top'})
 nnoremap <silent> [unite]x   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_mru<CR>
-nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec:!<CR>
+nnoremap <silent> [unite]l   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files line<CR>
+nnoremap <silent> [unite]p   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files file_rec/async:!<CR>
 nnoremap <silent> [unite]h   :<C-u>UniteWithBufferDir -silent -no-split -no-resize -buffer-name=files file file/new<CR>
 nnoremap <expr>   [unite]H ":\<C-u>Unite -silent -no-split -no-resize -buffer-name=files file:". $HOME . "\<CR>"
 nnoremap <silent> [unite]b   :<C-u>Unite -silent -no-split -no-resize -buffer-name=files buffer:-<CR>
 nnoremap          [unite]g  :\<C-u>Unite -silent -no-split -no-resize -buffer-name=files grep:.::
+autocmd MyGroup BufEnter * :execute 'lcd ' . unite#util#path2project_directory(expand('%'))
+"}}}
+" vimshell "{{{
+let g:vimshell_split_command = ''
+let g:vimshell_prompt = "% "
+let g:vimshell_user_prompt = 'hostname() .":". fnamemodify(getcwd(), ":~")'
+let g:vimshell_max_command_history = 10000
+nnoremap g,  :<C-u>update<CR>:VimShellCurrentDir<CR>
+nnoremap , :<C-u>update<CR>:VimShellBufferDir<CR>
+"}}}
+" visualstar"{{{
+nnoremap <Plug>(Nzz) Nzz
+map * <Plug>(visualstar-*)<Plug>(Nzz)
+map g* <Plug>(visualstar-g*)<Plug>(Nzz)
+"}}}
+" ref "{{{
+let g:ref_open = "edit"
+let g:ref_pydoc_cmd = 'python3 -m pydoc'
+let g:ref_cache_dir = "~/.cache/vim_ref"
+let g:ref_source_webdict_sites = {'weblio': {'url': 'http://ejje.weblio.jp/content/%s'},}
+function! g:ref_source_webdict_sites.weblio.filter(output)
+    return join(split(a:output, "\n")[60 :], "\n")
+endfunction
+nnoremap [ref/mark] m
+nmap m [ref/mark]
+nnoremap [ref/mark]w :Ref webdict weblio<space>
+nnoremap [ref/mark]p :Ref pydoc<space>
+nnoremap [ref/mark]m :Ref man<space>
+nnoremap [ref/mark]h :help<space>
+"}}}
+" quickrun "{{{
+let g:quickrun_config = {
+            \   "_":        {"runner": "vimproc", "runner/vimproc/updatetime": 500,},
+            \   "python":   {"command": "python3", "cmdopt": "-u",},
+            \   "tex":      {"command": "platex", "cmdopt": "-halt-on-error"},
+            \ }
+nnoremap <Plug>(colon) :
+nmap X <Plug>(colon)write<CR><Plug>(quickrun)
+"}}}
 "}}}
 " AutoCmds:"{{{
 autocmd MyGroup FileType * setlocal formatoptions-=ro "avoid auto comment mark insertinon
