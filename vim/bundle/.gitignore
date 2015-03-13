@@ -1,1 +1,2 @@
-tags
+*
+!/neobundle.vim

@@ -1,0 +1,15 @@
+" Additional 'set' options for GUI.
+set noshowmode
+set lines=80 columns=180
+set guicursor=a:blinkon0
+set mousehide
+set guioptions=c
+
+" Highlight.
+highlight CursorLine guibg=#343434
+highlight Folded gui=bold guibg=#303030 guifg=#998899
+
+" Use 'vlgothic' if available.
+if isdirectory('/usr/share/doc/fonts-vlgothic')
+    set guifont=VL\ Gothic
+endif
