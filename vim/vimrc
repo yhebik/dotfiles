@@ -86,7 +86,6 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'tyru/caw.vim'
 NeoBundle 'tyru/eskk.vim'
 NeoBundle 'yhebik/vim-mctabline'
-NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
 "}}}
