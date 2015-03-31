@@ -1,7 +1,7 @@
 snippet     img
 options     head
         <center>
-        <img src="`system('date "+%Y-%m-%d"')[:-2]`.${1:#:FPATH}", width=${2:200}>
+        <img src="../image/note/`system('date "+%Y-%m-%d"')[:-2]`/${1:#:FPATH}.png", width=${2:200}>
         </center>
         <center>
         **Fig. `system('date "+%Y-%m-%d"')[:-2]`.$1**
