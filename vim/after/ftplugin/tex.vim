@@ -3,6 +3,9 @@ if exists('&spell')
     syntax spell toplevel
 endif
 
+inoremap <buffer><expr> _ getline('.')[col('.')-2] == '_' ? "\<BS>$_{}$<`0`>\<Left>\<Left>\<Left>\<Left>\<Left>\<Left>\<Left>" : '_'
+inoremap <buffer><expr> ^ getline('.')[col('.')-2] == '^' ? "\<BS>$^{}$<`0`>\<Left>\<Left>\<Left>\<Left>\<Left>\<Left>\<Left>" : '^'
+
 " Text object
 call textobj#user#plugin('latex', {
             \   'environment': {
@@ -10,11 +13,6 @@ call textobj#user#plugin('latex', {
             \     'select-a': 'ae',
             \     'select-i': 'ie',
             \     'region-type': 'V',
-            \   },
-            \  'paren-math': {
-            \     '*pattern*': ['\\(', '\\)'],
-            \     'select-a': 'a\',
-            \     'select-i': 'i\',
             \   },
             \  'dollar-math-a': {
             \     '*pattern*': '[$][^$]*[$]',
