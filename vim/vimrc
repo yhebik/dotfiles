@@ -129,7 +129,7 @@ let g:eskk#keep_state = 1
 nmap s <Plug>Ysurround
 "}}}
 " vim-mctabline"{{{
-set tabline=%!MakeTabLine()
+set tabline=%!mctabline#make_tabline()
 "}}}
 " unite "{{{
 nnoremap [unite] <Nop>
