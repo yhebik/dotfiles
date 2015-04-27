@@ -113,6 +113,7 @@ smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_o
 "}}}
 " operator-replace "{{{
 map t <Plug>(operator-replace)
+onoremap t t
 "}}}
 " eskk "{{{
 cmap <C-j> <Plug>(eskk:toggle)
