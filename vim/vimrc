@@ -71,7 +71,7 @@ NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': 'make'}}
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'kana/vim-operator-replace'
 NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-surround'
+NeoBundle 'rhysd/vim-operator-surround'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-indent'
@@ -112,8 +112,7 @@ imap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_o
 smap <expr> @ neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "@"
 "}}}
 " operator-replace "{{{
-map t <Plug>(operator-replace)
-onoremap t t
+map ^ <Plug>(operator-replace)
 "}}}
 " eskk "{{{
 cmap <C-j> <Plug>(eskk:toggle)
@@ -126,8 +125,10 @@ let g:eskk#large_dictionary = {
             \}
 let g:eskk#keep_state = 1
 "}}}
-" vim-surround"{{{
-nmap s <Plug>Ysurround
+" vim-operator-surround"{{{
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sd <Plug>(operator-surround-delete)
+map <silent>sr <Plug>(operator-surround-replace)
 "}}}
 " vim-mctabline"{{{
 set tabline=%!mctabline#make_tabline()
