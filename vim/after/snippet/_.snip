@@ -1,25 +1,31 @@
 # current working directory
-snippet     Cf
+snippet     cwd_full
+alias       ccf
 options     word
         `substitute(system('pwd'), '\n', '', '') . '/'`
 
-snippet     C
+snippet     cwd
+alias       cc
 options     word
         `substitute(substitute(system('pwd'), '\n', '', '') . '/', $HOME, "~", "")`
 
 # project root directory
-snippet     P
+snippet     project_root
+alias       pp
 options     word
         `substitute(unite#util#path2project_directory(expand('%')) . '/', $HOME, "~", "")`
 
-snippet     Pf
+snippet     project_root_full
+alias       ppf
 options     word
         `unite#util#path2project_directory(expand('%')) . '/'`
 
-snippet     I
+snippet     image_dir
+alias       mm
 options     word
         ~/Research/docr/image/
 
-snippet     W
+snippet     work_dir
+alias       ww
 options     word
         ~/Research/_work/
