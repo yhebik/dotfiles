@@ -8,7 +8,7 @@ call vimshell#set_execute_file('dvi', 'gexe xdvi')
 call vimshell#set_execute_file('html,xhtml', 'gexe google-chrome')
 call vimshell#set_execute_file('wmv,mp4', 'avplay -loop 0')
 call vimshell#set_execute_file('xcf', 'gexe gimp')
-call vimshell#set_execute_file('log,inp,trj,dat', 'gexe wxmacmolplt')
+call vimshell#set_execute_file('log,inp,trj,dat,cml', 'gexe wxmacmolplt')
 call vimshell#altercmd#define('g', 'gexe')
 call vimshell#altercmd#define('sl', 'ls')
 
