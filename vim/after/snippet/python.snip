@@ -1,14 +1,31 @@
 snippet matplotlib
 options head
 	import matplotlib.pyplot as plt
+
+
 	def getax():
 		plt.rcParams['font.size'] = 22
 		plt.rcParams['mathtext.default'] = 'regular'
 		fig = plt.figure(1)
 		ax = fig.add_subplot(111)
-		ax.cla()
 		return ax${0}
 
 snippet shebang
 options head
 	#!/usr/bin/env python3${0}
+
+snippet ifmain
+options head
+	if __name__ == '__main__':
+                main()${0}
+
+snippet main
+options head
+	def main():
+                ${0}
+
+snippet maind
+options head
+	def main():
+		"""${1}"""
+		${0}

@@ -1,70 +1,69 @@
 snippet     chapter
 options     head
-        \chapter{${1}}%{{{
-        ${0:TARGET}
-        %}}}
+	\chapter{${1}}%{{{
+	${0:TARGET}
+	%}}}
 
 snippet     section
 options     head
-        \section{${1}}%{{{
-        ${0:TARGET}
-        %}}}
+	\section{${1}}%{{{
+	${0:TARGET}
+	%}}}
 
 snippet     subsection
 options     head
-        \subsection{${1}}%{{{
-        ${0:TARGET}
-        %}}}
+	\subsection{${1}}%{{{
+	${0:TARGET}
+	%}}}
 
 snippet     subsubsection
 options     head
-        \subsubsection{${1}}%{{{
-        ${0:TARGET}
-        %}}}
+	\subsubsection{${1}}%{{{
+	${0:TARGET}
+	%}}}
 
 snippet     \int
 alias       I
 options     word
-        \int_{${1}}^{${2}}${0}
+	\int_{${1}}^{${2}}${0}
 
 snippet     \frac
 alias       /
 options     word
-        \frac{${1}}{${2}}${0}
+	\frac{${1}}{${2}}${0}
 
 snippet     \sum
 snippet     S
 options     word
-        \sum_{${1}}^{${2}}${0}
+	\sum_{${1}}^{${2}}${0}
 
 snippet     (
 options     head
-        \left(
-                ${1}
-        \right)${0}
+	\left(
+		${1}
+	\right)${0}
 
 snippet     {
 options     head
-        \left\{
-                ${1}
-        \right\}${0}
+	\left\{
+		${1}
+	\right\}${0}
 
 snippet     [
 options     head
-        \left[
-                ${1}
-        \right]${0}
+	\left[
+		${1}
+	\right]${0}
 
 snippet     minipage
 options     head
-        \begin{minipage}{${1:width}}
-                ${0}
-        \end{minipage}
+	\begin{minipage}{${1:width}}
+		${0}
+	\end{minipage}
 
 snippet     frame
 options     head
-        \begin{frame}{${1:title}}%{{{
-                \framesubtitle{${2:#:subtitle}}
-                ${0}
-        \end{frame}
- %}}}
+	\begin{frame}{${1:title}}%{{{
+		\framesubtitle{${2:#:subtitle}}
+		${0}
+	\end{frame}
