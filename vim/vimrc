@@ -41,7 +41,7 @@ nnoremap <C-w>C :tabclose<CR>
 nnoremap <C-w>O :tabonly<CR>
 nnoremap - gt
 nnoremap _ gT
-inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' && getline('.')[col('.')-2]!="\<Tab>" ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> col('.')!=1 && getline('.')[col('.')-2]!=' ' ? "\<C-p>" : "\<S-Tab>"
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
