@@ -1,25 +1,25 @@
 snippet     chapter
 options     head
 	\chapter{${1}}%{{{
-	${0:TARGET}
+	${0}
 	%}}}
 
 snippet     section
 options     head
 	\section{${1}}%{{{
-	${0:TARGET}
+	${0}
 	%}}}
 
 snippet     subsection
 options     head
 	\subsection{${1}}%{{{
-	${0:TARGET}
+	${0}
 	%}}}
 
 snippet     subsubsection
 options     head
 	\subsubsection{${1}}%{{{
-	${0:TARGET}
+	${0}
 	%}}}
 
 snippet     \int
@@ -30,7 +30,7 @@ options     word
 snippet     \frac
 alias       /
 options     word
-	\frac{${1}}{${2}}${0}
+	\frac{${1:1}}^{${2:2}}${0}
 
 snippet     \sum
 snippet     S
@@ -40,24 +40,24 @@ options     word
 snippet     (
 options     head
 	\left(
-		${1}
-	\right)${0}
+		${0}
+	\right)
 
 snippet     {
 options     head
 	\left\{
-		${1}
-	\right\}${0}
+		${0}
+	\right\}
 
 snippet     [
 options     head
 	\left[
-		${1}
-	\right]${0}
+		${0}
+	\right]
 
 snippet     minipage
 options     head
-	\begin{minipage}{${1:width}}
+	\begin{minipage}{${1:0.49\\hsize}}
 		${0}
 	\end{minipage}
 
