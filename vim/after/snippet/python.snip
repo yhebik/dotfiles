@@ -18,15 +18,15 @@ options head
 snippet ifmain
 options head
 	if __name__ == '__main__':
-		${0}main()
+		${1}main()
 
 snippet main
 options head
 	def main():
-		${0:pass}
+		${1:pass}${0}
 
 snippet maind
 options head
 	def main():
 		"""${1}"""
-		${0:pass}
+		${0:pass}${0}
