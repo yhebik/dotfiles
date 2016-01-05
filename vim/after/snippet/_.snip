@@ -20,12 +20,17 @@ alias       ppf
 options     word
         `unite#util#path2project_directory(expand('%')) . '/'`
 
-snippet     image_dir
-alias       mm
+snippet     note_dir
+alias       nn
 options     word
-        ~/Research/docr/image/
+        ~/Research/rdoc/note/src/${0}
 
 snippet     work_dir
 alias       ww
 options     word
-        ~/Research/_work/
+        ~/Research/_work/${0}
+
+snippet     date_with_slash
+alias       DD
+options     word
+	`strftime("%Y/%m/%d")`${0}
